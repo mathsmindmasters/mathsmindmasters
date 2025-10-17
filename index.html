@@ -137,6 +137,11 @@
         .logo-img {
             height: 40px;
             margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -541,6 +546,60 @@
             font-size: 0.9rem;
         }
 
+        /* Logo Upload Section */
+        .logo-upload-section {
+            background-color: var(--light);
+            padding: 40px 0;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .upload-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--primary);
+            border-radius: 10px;
+            padding: 40px 20px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background-color: rgba(79, 70, 229, 0.05);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .upload-area p {
+            margin-bottom: 0;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        .logo-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logo-preview img {
+            max-height: 100px;
+            max-width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             h1 {
@@ -645,6 +704,27 @@
                     <a href="#" class="btn btn-primary btn-large">Start Learning Today</a>
                     <a href="#" class="btn btn-secondary btn-large">Book a Demo</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Upload Section -->
+    <section class="logo-upload-section">
+        <div class="container">
+            <h2>Add Your Company Logo</h2>
+            <div class="upload-container">
+                <p>Upload your company logo to display it on the website</p>
+                <div class="upload-area" id="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Click to Upload Logo</h3>
+                    <p>Recommended size: 200x60px or similar aspect ratio</p>
+                    <p>Supported formats: PNG, JPG, SVG</p>
+                </div>
+                <input type="file" id="file-input" accept="image/*">
+                <div class="logo-preview" id="logo-preview">
+                    <!-- Logo preview will appear here -->
+                </div>
+                <p><small>After uploading, right-click the logo above and select "Save image as" to download it. Then replace the "logo.png" file in your website folder.</small></p>
             </div>
         </div>
     </section>
@@ -909,6 +989,27 @@
                     });
                 }
             });
+        });
+
+        // Logo upload functionality
+        document.getElementById('upload-area').addEventListener('click', function() {
+            document.getElementById('file-input').click();
+        });
+
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const logoPreview = document.getElementById('logo-preview');
+                    logoPreview.innerHTML = `<img src="${event.target.result}" alt="Logo Preview">`;
+                    
+                    // Update the logo in the header as well
+                    const headerLogo = document.querySelector('.logo-img');
+                    headerLogo.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
         });
     </script>
 </body>
