@@ -661,6 +661,50 @@
                 flex-direction: column;
                 gap: 20px;
             }
+			
+			 nav {
+        display: flex;
+        justify-content: center;
+        background-color: #343a40;
+        padding: 0.5rem 0;
+    }
+    nav a {
+        color: red;
+        text-decoration: none;
+        margin: 0 1rem;
+    }
+	scroller {
+        background-color: #ffc107;
+        color: #343a40;
+        padding: 0.5rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .scroller-text {
+        display: inline-block;
+        animation: scrollText 10s linear infinite;
+		color: red; 
+		font-weight: bold;
+    }
+    @keyframes scrollText {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    .container {
+        padding: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+	.slick-slide {
+            text-align: center;
+            margin: 0 10px;
+        }
         }
     </style>
 </head>
@@ -693,6 +737,11 @@
             </div>
         </div>
     </header>
+	
+	<div class="scroller">
+        <span class="scroller-text">Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
+    </div>
+	
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-container">
