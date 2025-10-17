@@ -108,13 +108,55 @@
             text-align: center;
         }
 
+        /* Scroller Styles */
+        .scroller {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroller-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+
+        .scroller-text {
+            display: inline-block;
+            padding-right: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .scroller-text i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Pause animation on hover */
+        .scroller:hover .scroller-content {
+            animation-play-state: paused;
+        }
+
         /* Header Styles */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 40px; /* Adjusted to account for scroller height */
             z-index: 1000;
         }
 
@@ -178,7 +220,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
-            padding: 150px 0 100px;
+            padding: 190px 0 100px; /* Adjusted padding to account for header and scroller */
             position: relative;
             overflow: hidden;
         }
@@ -649,6 +691,10 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            
+            .scroller-text {
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -661,59 +707,36 @@
                 flex-direction: column;
                 gap: 20px;
             }
-			
-			 nav {
-        display: flex;
-        justify-content: center;
-        background-color: #343a40;
-        padding: 0.5rem 0;
-    }
-    nav a {
-        color: red;
-        text-decoration: none;
-        margin: 0 1rem;
-    }
-	scroller {
-        background-color: #ffc107;
-        color: #343a40;
-        padding: 0.5rem 0;
-        overflow: hidden;
-        white-space: nowrap;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .scroller-text {
-        display: inline-block;
-        animation: scrollText 10s linear infinite;
-		color: red; 
-		font-weight: bold;
-    }
-    @keyframes scrollText {
-        0% {
-            transform: translateX(100%);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-    .container {
-        padding: 0.5rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1rem;
-    }
-	.slick-slide {
-            text-align: center;
-            margin: 0 10px;
-        }
+            
+            .scroller-text {
+                font-size: 0.8rem;
+            }
+            
+            header {
+                top: 35px; /* Adjusted for smaller scroller height on mobile */
+            }
+            
+            .hero {
+                padding: 175px 0 80px; /* Adjusted for smaller header on mobile */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Scrolling Announcement -->
+    <div class="scroller">
+        <div class="scroller-content">
+            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
+            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
+            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="https://raw.githubusercontent.com/mathsmindmasters/mathsmindmasters/refs/heads/main/logo.png" alt="MathsMind Masters Logo" class="logo-img">
+                <img src="logo.png" alt="MathsMind Masters Logo" class="logo-img">
                 MathsMind Masters
             </a>
             
@@ -737,23 +760,21 @@
             </div>
         </div>
     </header>
-	
-	<div class="scroller">
-        <span class="scroller-text">Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
-    </div>
-	
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Achieve Mastery in Mathematics with Tailored Guidance.</h1>
-                <p>Join MathsMind Masters to enhance your maths skills with our expert tutors and interactive maths tips and tricks, including a blend of Vedic maths.</p>
+                <p>Join MathsMind Masters to enhance your math skills with our expert tutors and interactive math tips and tricks, including a blend of Vedic math.</p>
                 <div class="hero-buttons">
                     <a href="#" class="btn btn-primary btn-large">Start Learning Today</a>
+                    <a href="#" class="btn btn-secondary btn-large">Book a Demo</a>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Features Section -->
     <section class="features">
         <div class="container">
@@ -764,7 +785,7 @@
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <h3>Expert Tutors</h3>
-                    <p>Learn from certified maths experts with years of teaching experience and proven track records.</p>
+                    <p>Learn from certified math experts with years of teaching experience and proven track records.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -783,6 +804,7 @@
             </div>
         </div>
     </section>
+
     <!-- Courses Section -->
     <section id="courses" class="courses">
         <div class="container">
@@ -794,7 +816,7 @@
                     </div>
                     <div class="course-content">
                         <h3>Reception Syllabus along with Fundamental Mathematics</h3>
-                        <p>Master the basics of maths with step-by-step guidance and practice problems, along with the Reception curriculum.</p>
+                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the Reception curriculum.</p>
                         <div class="course-meta">
                             <span class="course-level">Beginner</span>
                             <span>Term based Lessons</span>
@@ -808,7 +830,7 @@
                     </div>
                     <div class="course-content">
                         <h3>KS1 Syllabus along with Fundamental Mathematics</h3>
-                        <p>Master the basics of maths with step-by-step guidance and practice problems, along with the KS1 - Year 1 curriculum.</p>
+                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the KS1 - Year 1 curriculum.</p>
                         <div class="course-meta">
                             <span class="course-level">Intermediate</span>
                             <span>Term based Lessons</span>
@@ -833,12 +855,13 @@
             </div>
         </div>
     </section>
+
     <!-- Course Details Section - Our Approach -->
     <section id="our-approach" class="course-details-hero">
         <div class="container">
             <div class="course-hero-content">
                 <h1>Our Approach - blending Vedic Maths with the KS1 Curriculum.</h1>
-                <p>Establish a strong foundation in maths concepts and problem-solving techniques by blending Vedic maths formulas and Abacus. This approach is perfect for beginners or those needing a refresher to solve problems more quickly.</p>
+                <p>Establish a strong foundation in math concepts and problem-solving techniques by blending Vedic math formulas and Abacus. This approach is perfect for beginners or those needing a refresher to solve problems more quickly.</p>
                 <div class="course-highlights">
                     <div class="highlight-item">
                         <i class="fas fa-clock"></i>
@@ -865,7 +888,7 @@
                 <div class="course-info">
                     <h3>About This Course</h3>
                     <p>Our Maths Fundamentals course aims to help students establish a strong understanding of mathematical concepts and develop problem-solving skills essential for advanced mathematics.</p>
-                    <p>By blending Vedic maths, Abacus lessons, practical examples, and personalized guidance, you'll master essential maths operations, equations, inequalities, and functions.</p>
+                    <p>By blending Vedic math, Abacus lessons, practical examples, and personalized guidance, you'll master essential maths operations, equations, inequalities, and functions.</p>
                 </div>
                 
                 <div class="course-schedule">
@@ -934,9 +957,9 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>Ready to Transform Your Maths Skills?</h2>
-            <p>Join our students who have improved their maths skills and achieved their academic goals with MathsMind Masters.</p>
-            <a href="#enroll" class="btn btn-large">Begin Your Journey with MathsMind Masters. </a>
+            <h2>Ready to Transform Your Math Skills?</h2>
+            <p>Join our students who have improved their math skills and achieved their academic goals with MathsMind Masters.</p>
+            <a href="#enroll" class="btn btn-large">Start Your Free Trial</a>
         </div>
     </section>
 
@@ -968,7 +991,7 @@
                     <h3>Resources</h3>
                     <ul>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Maths Worksheets</a></li>
+                        <li><a href="#">Math Worksheets</a></li>
                         <li><a href="#">Practice Tests</a></li>
                         <li><a href="#">Study Guides</a></li>
                         <li><a href="#">FAQ</a></li>
