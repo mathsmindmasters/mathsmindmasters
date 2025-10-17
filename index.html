@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>MathsMind Masters - Maths Confidence Starts Here!.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathsMind Masters - Maths Confidence Starts Here!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <style>
+    <style>
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -134,9 +134,9 @@
             align-items: center;
         }
 
-        .logo i {
+        .logo-img {
+            height: 40px;
             margin-right: 10px;
-            color: var(--secondary);
         }
 
         nav ul {
@@ -314,6 +314,87 @@
             font-weight: 500;
         }
 
+        /* Course Details Section */
+        .course-details-hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .course-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .course-hero-content h1 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-hero-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+        }
+
+        .course-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-item i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .highlight-item span {
+            color: white;
+            font-weight: 500;
+        }
+
+        .course-details-content {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .course-details-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .course-info {
+            padding-right: 30px;
+        }
+
+        .course-schedule {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
         /* Testimonials Section */
         .testimonials {
             background-color: white;
@@ -469,6 +550,15 @@
             h2 {
                 font-size: 2.2rem;
             }
+            
+            .course-details-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .course-info {
+                padding-right: 0;
+            }
         }
 
         @media (max-width: 768px) {
@@ -507,51 +597,56 @@
                 width: 100%;
                 text-align: center;
             }
+            
+            .course-highlights {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-   <header>
-    <div class="container header-container">
-        <a href="#" class="logo">
-            <img src="C:\Users\kiran\Videos\numagic Mantra\Final Logo\Final\Final_final.jpg" class="logo-img">
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="MathsMind Masters Logo" class="logo-img">
+                MathsMind Masters
+            </a>
             
-        </a>
-        
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#">How It Works</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Resources</a></li>
-            </ul>
-        </nav>
-        
-        <div class="header-buttons">
-            <a href="#" class="btn btn-secondary">Log In</a>
-            <a href="#" class="btn btn-primary">Sign Up</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#our-approach">How It Works</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-buttons">
+                <a href="#" class="btn btn-secondary">Log In</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        
-        <div class="mobile-menu">
-            <i class="fas fa-bars"></i>
-        </div>
-    </div>
-</header>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Achieve Mastery in Mathematics with Tailored Guidance.</h1>
-                <p>Join MathsMind Masters to enhance your math skills with our expert tutors and interactive math tips and tricks, including a blend of Vedic math..</p>
+                <p>Join MathsMind Masters to enhance your math skills with our expert tutors and interactive math tips and tricks, including a blend of Vedic math.</p>
                 <div class="hero-buttons">
                     <a href="#" class="btn btn-primary btn-large">Start Learning Today</a>
                     <a href="#" class="btn btn-secondary btn-large">Book a Demo</a>
                 </div>
             </div>
-            </div>
+        </div>
     </section>
 
     <!-- Features Section -->
@@ -578,7 +673,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Personalized Focus</h3>
-                    <p>Receive a personalized learning path designed specifically for your strengths, weaknesses, and future goals..</p>
+                    <p>Receive a personalized learning path designed specifically for your strengths, weaknesses, and future goals.</p>
                 </div>
             </div>
         </div>
@@ -589,13 +684,13 @@
         <div class="container">
             <h2>Popular Courses</h2>
             <div class="courses-grid">
-                <a href="#algebra-course" class="course-card" style="text-decoration: none; color: inherit;">
+                <a href="#reception-course" class="course-card" style="text-decoration: none; color: inherit;">
                     <div class="course-image" style="background-color: #4f46e5;">
                         Reception
                     </div>
                     <div class="course-content">
                         <h3>Reception Syllabus along with Fundamental Mathematics</h3>
-                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the Reception curriculum..</p>
+                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the Reception curriculum.</p>
                         <div class="course-meta">
                             <span class="course-level">Beginner</span>
                             <span>Term based Lessons</span>
@@ -603,13 +698,13 @@
                         <div class="btn btn-primary">View Details</div>
                     </div>
                 </a>
-                <a href="#calculus-course" class="course-card" style="text-decoration: none; color: inherit;">
+                <a href="#year1-course" class="course-card" style="text-decoration: none; color: inherit;">
                     <div class="course-image" style="background-color: #f97316;">
                         Year 1
                     </div>
                     <div class="course-content">
                         <h3>KS1 Syllabus along with Fundamental Mathematics</h3>
-                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the KS1 - Year 1 curriculum..</p>
+                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the KS1 - Year 1 curriculum.</p>
                         <div class="course-meta">
                             <span class="course-level">Intermediate</span>
                             <span>Term based Lessons</span>
@@ -617,13 +712,13 @@
                         <div class="btn btn-primary">View Details</div>
                     </div>
                 </a>
-                <a href="#geometry-course" class="course-card" style="text-decoration: none; color: inherit;">
+                <a href="#year2-course" class="course-card" style="text-decoration: none; color: inherit;">
                     <div class="course-image" style="background-color: #10b981;">
                         Year 2
                     </div>
                     <div class="course-content">
                         <h3>KS1 Syllabus along with Fundamental Mathematics</h3>
-                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the KS1 - Year 2 curriculum..</p>
+                        <p>Master the basics of math with step-by-step guidance and practice problems, along with the KS1 - Year 2 curriculum.</p>
                         <div class="course-meta">
                             <span class="course-level">Advanced</span>
                             <span>Term based Lessons</span>
@@ -636,7 +731,7 @@
     </section>
 
     <!-- Course Details Section - Our Approach -->
-    <section id="Our Approach" class="course-details-hero">
+    <section id="our-approach" class="course-details-hero">
         <div class="container">
             <div class="course-hero-content">
                 <h1>Our Approach - blending Vedic Maths with the KS1 Curriculum.</h1>
@@ -648,39 +743,19 @@
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-user-friends"></i>
-                        <span>1- Small Groups Tutoring</span>
+                        <span>Small Groups Tutoring</span>
                     </div>
                     <div class="highlight-item">
                         <i class="fas fa-certificate"></i>
                         <span>Certificate of Completion</span>
                     </div>
                 </div>
-                <a href="#" class="btn btn-large" style="background-color: white; color: var(--primary);">Enroll Your Child Today!</a>
-				<!-- Enroll Now Form Section -->
-         <section id="enroll" class="enroll-section">
-		<div class="container">
-        <h2>Enroll Your Child Today!</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
-            Please fill out the enrollment form below, and our team will contact you shortly.
-        </p>
-        <div class="form-container" style="display: flex; justify-content: center;">
-            <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfPS4Y7x2lZE_oJupgWBn4o6FRdRqZUjx_fJ3xxE-jFZdEIlw/viewform?usp=header" 
-                width="100%" 
-                height="900" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0"
-                style="border: none; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                Loading…
-            </iframe>
+                <a href="#enroll" class="btn btn-large" style="background-color: white; color: var(--primary);">Enroll Your Child Today!</a>
+            </div>
         </div>
-    </div>
-</section>   
-            </div>
-            </div>
     </section>
 
+    <!-- Course Details Content -->
     <section class="course-details-content">
         <div class="container">
             <div class="course-details-grid">
@@ -688,14 +763,13 @@
                     <h3>About This Course</h3>
                     <p>Our Maths Fundamentals course aims to help students establish a strong understanding of mathematical concepts and develop problem-solving skills essential for advanced mathematics.</p>
                     <p>By blending Vedic math, Abacus lessons, practical examples, and personalized guidance, you'll master essential maths operations, equations, inequalities, and functions.</p>
-                    </div>
                 </div>
                 
                 <div class="course-schedule">
                     <h3>Course Details</h3>
                     <div class="schedule-item">
                         <span>Duration</span>
-                        <span>Initial Stage -  4 – 6 Months based on the Kids' learning time and achievement duration</span>
+                        <span>4 – 6 Months</span>
                     </div>
                     <div class="schedule-item">
                         <span>Level</span>
@@ -703,21 +777,35 @@
                     </div>
                     <div class="schedule-item">
                         <span>Format</span>
-                        <span>1 to Groups</span>
+                        <span>Small Groups</span>
                     </div>
-					<!-- 
-                    /*<div class="schedule-item">
-                        <span>Price</span>
-                        <span style="font-weight: 700; color: var(--primary);">$199</span>
-                    </div> -->
-                    
-                    <a href="#" class="btn btn-primary btn-large" style="width: 100%; text-align: center; margin-top: 20px;">Enroll Now</a>
-		              
+                    <a href="#enroll" class="btn btn-primary btn-large" style="width: 100%; text-align: center; margin-top: 20px;">Enroll Now</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Enroll Now Form Section -->
+    <section id="enroll" class="enroll-section">
+        <div class="container">
+            <h2>Enroll Your Child Today!</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
+                Please fill out the enrollment form below, and our team will contact you shortly.
+            </p>
+            <div class="form-container" style="display: flex; justify-content: center;">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfPS4Y7x2lZE_oJupgWBn4o6FRdRqZUjx_fJ3xxE-jFZdEIlw/viewform?usp=header" 
+                    width="100%" 
+                    height="900" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="border: none; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
+    </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
@@ -726,18 +814,16 @@
             <div class="testimonials-container">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                       "MathsMind Masters changed my son's view of math entirely. Their personalized approach empowered him to overcome his fear of the subject and achieve significant improvements!"
-"
+                        "MathsMind Masters changed my son's view of math entirely. Their personalized approach empowered him to overcome his fear of the subject and achieve significant improvements!"
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">RS</div>
                         <div class="author-info">
-                            <h4>Srinivas </h4>
+                            <h4>Srinivas</h4>
                             <p>Year 1 Student Father</p>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -746,8 +832,8 @@
     <section class="cta">
         <div class="container">
             <h2>Ready to Transform Your Math Skills?</h2>
-            <p>Join our students who have improved their math skills and achieved their academic goals with MathsMind Masters..</p>
-            <a href="#" class="btn btn-large">Start Your Free Trial</a>
+            <p>Join our students who have improved their math skills and achieved their academic goals with MathsMind Masters.</p>
+            <a href="#enroll" class="btn btn-large">Start Your Free Trial</a>
         </div>
     </section>
 
@@ -770,9 +856,9 @@
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#courses">Courses</a></li>
-                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#our-approach">How It Works</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#enroll">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -790,7 +876,7 @@
                     <ul>
                         <li><a href="mailto:mathsmindmasters@gmail.com">mathsmindmasters@gmail.com</a></li>
                         <li><a href="tel:+41234567890">+4 (123) 456-7890</a></li>
-                        <li> Kenyon Way<br>Langley, SL3 8AL </li>
+                        <li>Kenyon Way<br>Langley, SL3 8AL</li>
                     </ul>
                 </div>
             </div>
