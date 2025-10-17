@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathsMind Masters - Maths Confidence Starts Here!</title>
+    <title>MathMind Masters - Maths Confidence Starts Here!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
@@ -22,6 +22,7 @@
             --dark: #1e293b;
             --gray: #64748b;
             --success: #10b981;
+            --danger: #ef4444;
         }
 
         body {
@@ -48,6 +49,7 @@
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
@@ -255,18 +257,6 @@
             justify-content: center;
         }
 
-        .hero-image {
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
         /* Features Section */
         .features {
             background-color: white;
@@ -361,136 +351,212 @@
             font-weight: 500;
         }
 
-        /* Course Details Section */
-        .course-details-hero {
-            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
-            color: white;
-            padding: 100px 0;
-        }
-
-        .course-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .course-hero-content h1 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .course-hero-content p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2.5rem;
-        }
-
-        .course-highlights {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .highlight-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .highlight-item i {
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .highlight-item span {
-            color: white;
-            font-weight: 500;
-        }
-
-        .course-details-content {
+        /* Test System Styles */
+        .test-system {
             background-color: white;
             padding: 80px 0;
         }
 
-        .course-details-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 50px;
-        }
-
-        .course-info {
-            padding-right: 30px;
-        }
-
-        .course-schedule {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 10px;
-            height: fit-content;
-        }
-
-        .schedule-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .schedule-item:last-child {
-            border-bottom: none;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: white;
-        }
-
-        .testimonials-container {
+        .test-container {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .testimonial-card {
             background-color: var(--light);
             border-radius: 10px;
-            padding: 30px;
-            margin: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .testimonial-content {
-            font-style: italic;
+        .test-step {
+            display: none;
+        }
+
+        .test-step.active {
+            display: block;
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
         }
 
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .question-number {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            background-color: #f8fafc;
+        }
+
+        .option.selected {
+            background-color: #f0f4ff;
+            border-color: var(--primary);
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .test-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
             background-color: var(--primary);
-            margin-right: 15px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .results-container {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0% 0%, #e2e8f0 0% 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 600;
+            margin: 0 auto 30px;
+            position: relative;
         }
 
-        .author-info h4 {
-            margin-bottom: 5px;
+        .score-inner {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
-        .author-info p {
-            margin: 0;
-            color: var(--gray);
-            font-size: 0.9rem;
+        .pass {
+            color: var(--success);
+        }
+
+        .fail {
+            color: var(--danger);
+        }
+
+        .result-details {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* Resources Section */
+        .resources {
+            background-color: var(--light);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            background-color: #f0f4ff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .resource-icon i {
+            font-size: 1.8rem;
+            color: var(--primary);
         }
 
         /* CTA Section */
@@ -588,60 +654,6 @@
             font-size: 0.9rem;
         }
 
-        /* Logo Upload Section */
-        .logo-upload-section {
-            background-color: var(--light);
-            padding: 40px 0;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .upload-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .upload-area {
-            border: 2px dashed var(--primary);
-            border-radius: 10px;
-            padding: 40px 20px;
-            margin: 20px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .upload-area:hover {
-            background-color: rgba(79, 70, 229, 0.05);
-        }
-
-        .upload-area i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .upload-area p {
-            margin-bottom: 0;
-        }
-
-        #file-input {
-            display: none;
-        }
-
-        .logo-preview {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .logo-preview img {
-            max-height: 100px;
-            max-width: 100%;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
         /* Responsive Styles */
         @media (max-width: 992px) {
             h1 {
@@ -650,15 +662,6 @@
             
             h2 {
                 font-size: 2.2rem;
-            }
-            
-            .course-details-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .course-info {
-                padding-right: 0;
             }
         }
 
@@ -695,17 +698,16 @@
             .scroller-text {
                 font-size: 0.9rem;
             }
+            
+            .test-container {
+                padding: 20px;
+            }
         }
 
         @media (max-width: 576px) {
             .btn {
                 width: 100%;
                 text-align: center;
-            }
-            
-            .course-highlights {
-                flex-direction: column;
-                gap: 20px;
             }
             
             .scroller-text {
@@ -719,6 +721,15 @@
             .hero {
                 padding: 175px 0 80px; /* Adjusted for smaller header on mobile */
             }
+            
+            .test-navigation {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .test-navigation .btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -726,9 +737,9 @@
     <!-- Scrolling Announcement -->
     <div class="scroller">
         <div class="scroller-content">
-            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
-            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
-            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathsMind Masters! We will start our new batches from 05 Nov 2025.</span>
+            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathMind Masters! We will start our new batches from 05 Nov 2025.</span>
+            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathMind Masters! We will start our new batches from 05 Nov 2025.</span>
+            <span class="scroller-text"><i class="fas fa-bullhorn"></i> Welcome to MathMind Masters! We will start our new batches from 05 Nov 2025.</span>
         </div>
     </div>
 
@@ -736,8 +747,8 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="logo.png" alt="MathsMind Masters Logo" class="logo-img">
-                MathsMind Masters
+                <img src="logo.png" alt="MathMind Masters Logo" class="logo-img">
+                MathMind Masters
             </a>
             
             <nav>
@@ -745,14 +756,14 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#courses">Courses</a></li>
                     <li><a href="#our-approach">How It Works</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Resources</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#test-system">Assessment</a></li>
                 </ul>
             </nav>
             
             <div class="header-buttons">
-                <a href="#" class="btn btn-secondary">Log In</a>
-                <a href="#" class="btn btn-primary">Sign Up</a>
+                <a href="#" class="btn btn-secondary" id="login-btn">Log In</a>
+                <a href="#" class="btn btn-primary" id="signup-btn">Sign Up</a>
             </div>
             
             <div class="mobile-menu">
@@ -766,9 +777,9 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Achieve Mastery in Mathematics with Tailored Guidance.</h1>
-                <p>Join MathsMind Masters to enhance your math skills with our expert tutors and interactive math tips and tricks, including a blend of Vedic math.</p>
+                <p>Join MathMind Masters to enhance your math skills with our expert tutors and interactive math tips and tricks, including a blend of Vedic math.</p>
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary btn-large">Start Learning Today</a>
+                    <a href="#test-system" class="btn btn-primary btn-large">Take Assessment</a>
                     <a href="#" class="btn btn-secondary btn-large">Book a Demo</a>
                 </div>
             </div>
@@ -778,7 +789,7 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2>Why Choose MathsMind Masters?</h2>
+            <h2>Why Choose MathMind Masters?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -856,99 +867,186 @@
         </div>
     </section>
 
-    <!-- Course Details Section - Our Approach -->
-    <section id="our-approach" class="course-details-hero">
+    <!-- Test System Section -->
+    <section id="test-system" class="test-system">
         <div class="container">
-            <div class="course-hero-content">
-                <h1>Our Approach - blending Vedic Maths with the KS1 Curriculum.</h1>
-                <p>Establish a strong foundation in math concepts and problem-solving techniques by blending Vedic math formulas and Abacus. This approach is perfect for beginners or those needing a refresher to solve problems more quickly.</p>
-                <div class="course-highlights">
-                    <div class="highlight-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Term Based</span>
+            <h2>Student Assessment</h2>
+            <div class="test-container">
+                <!-- Step 1: Login/Registration -->
+                <div class="test-step active" id="step1">
+                    <h3>Login to Assessment System</h3>
+                    <p>Please login to our assessment system to begin the test.</p>
+                    
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" placeholder="Enter your username">
                     </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-user-friends"></i>
-                        <span>Small Groups Tutoring</span>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
                     </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-certificate"></i>
-                        <span>Certificate of Completion</span>
+                    
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="login-to-test">Login to Assessment</button>
                     </div>
-                </div>
-                <a href="#enroll" class="btn btn-large" style="background-color: white; color: var(--primary);">Enroll Your Child Today!</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Course Details Content -->
-    <section class="course-details-content">
-        <div class="container">
-            <div class="course-details-grid">
-                <div class="course-info">
-                    <h3>About This Course</h3>
-                    <p>Our Maths Fundamentals course aims to help students establish a strong understanding of mathematical concepts and develop problem-solving skills essential for advanced mathematics.</p>
-                    <p>By blending Vedic math, Abacus lessons, practical examples, and personalized guidance, you'll master essential maths operations, equations, inequalities, and functions.</p>
-                </div>
-                
-                <div class="course-schedule">
-                    <h3>Course Details</h3>
-                    <div class="schedule-item">
-                        <span>Duration</span>
-                        <span>4 – 6 Months</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span>Level</span>
-                        <span>Beginner</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span>Format</span>
-                        <span>Small Groups</span>
-                    </div>
-                    <a href="#enroll" class="btn btn-primary btn-large" style="width: 100%; text-align: center; margin-top: 20px;">Enroll Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enroll Now Form Section -->
-    <section id="enroll" class="enroll-section">
-        <div class="container">
-            <h2>Enroll Your Child Today!</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">
-                Please fill out the enrollment form below, and our team will contact you shortly.
-            </p>
-            <div class="form-container" style="display: flex; justify-content: center;">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSfPS4Y7x2lZE_oJupgWBn4o6FRdRqZUjx_fJ3xxE-jFZdEIlw/viewform?usp=header" 
-                    width="100%" 
-                    height="900" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="border: none; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    Loading…
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <h2>What Our Students Say</h2>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "MathsMind Masters changed my son's view of math entirely. Their personalized approach empowered him to overcome his fear of the subject and achieve significant improvements!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RS</div>
-                        <div class="author-info">
-                            <h4>Srinivas</h4>
-                            <p>Year 1 Student Father</p>
+                    
+                    <p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
+                    
+                    <!-- Registration Form (Hidden by default) -->
+                    <div id="registration-form" style="display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
+                        <h4>Create New Account</h4>
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" class="form-control" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select id="role" class="form-control">
+                                <option value="">Select your role</option>
+                                <option value="student">Student</option>
+                                <option value="parent">Parent</option>
+                                <option value="teacher">Teacher</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="new-username">Username</label>
+                            <input type="text" id="new-username" class="form-control" placeholder="Choose a username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="new-password">Password</label>
+                            <input type="password" id="new-password" class="form-control" placeholder="Create a password">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="register-btn">Register</button>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Step 2: Course Selection -->
+                <div class="test-step" id="step2">
+                    <h3>Select Course</h3>
+                    <p>Please select the course for which you want to take the assessment.</p>
+                    
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <select id="course" class="form-control">
+                            <option value="">Select a course</option>
+                            <option value="reception">Reception - Fundamental Mathematics</option>
+                            <option value="year1">Year 1 - KS1 Syllabus</option>
+                            <option value="year2">Year 2 - KS1 Syllabus</option>
+                        </select>
+                    </div>
+                    
+                    <div class="test-navigation">
+                        <button class="btn btn-secondary" id="back-to-login">Back</button>
+                        <button class="btn btn-primary" id="start-test">Start Test</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Test Questions -->
+                <div class="test-step" id="step3">
+                    <h3>Assessment Questions</h3>
+                    <p>Answer all questions. All questions are mandatory.</p>
+                    
+                    <div class="progress-bar">
+                        <div class="progress" id="test-progress"></div>
+                    </div>
+                    
+                    <div id="questions-container">
+                        <!-- Questions will be dynamically inserted here -->
+                    </div>
+                    
+                    <div class="test-navigation">
+                        <button class="btn btn-secondary" id="prev-question" disabled>Previous</button>
+                        <button class="btn btn-primary" id="next-question">Next Question</button>
+                        <button class="btn btn-primary" id="submit-test" style="display: none;">Submit Test</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Results -->
+                <div class="test-step" id="step4">
+                    <div class="results-container">
+                        <h3>Assessment Results</h3>
+                        
+                        <div class="score-circle">
+                            <div class="score-inner">
+                                <span id="score-value">0%</span>
+                            </div>
+                        </div>
+                        
+                        <h4 id="result-status">Result Status</h4>
+                        <p id="result-message">Your performance details will appear here.</p>
+                        
+                        <div class="result-details">
+                            <div class="result-item">
+                                <span>Total Questions:</span>
+                                <span id="total-questions">10</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Correct Answers:</span>
+                                <span id="correct-answers">0</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Score:</span>
+                                <span id="final-score">0%</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Status:</span>
+                                <span id="pass-fail">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 30px;">
+                            <label for="parent-email">Parent's Email (for result sharing)</label>
+                            <input type="email" id="parent-email" class="form-control" placeholder="Enter parent's email address">
+                        </div>
+                        
+                        <button class="btn btn-primary" id="send-results">Send Results to Parent</button>
+                        <button class="btn btn-secondary" id="retake-test">Take Another Test</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2>Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Study Guides</h3>
+                    <p>Comprehensive study materials for all courses and levels to help you master mathematical concepts.</p>
+                    <a href="#" class="btn btn-primary">Access Guides</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Practice Worksheets</h3>
+                    <p>Downloadable worksheets with exercises and problems to reinforce learning and build confidence.</p>
+                    <a href="#" class="btn btn-primary">Get Worksheets</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Tutorials</h3>
+                    <p>Step-by-step video explanations of complex topics and problem-solving techniques.</p>
+                    <a href="#" class="btn btn-primary">Watch Videos</a>
                 </div>
             </div>
         </div>
@@ -958,8 +1056,8 @@
     <section class="cta">
         <div class="container">
             <h2>Ready to Transform Your Math Skills?</h2>
-            <p>Join our students who have improved their math skills and achieved their academic goals with MathsMind Masters.</p>
-            <a href="#enroll" class="btn btn-large">Start Your Free Trial</a>
+            <p>Join our students who have improved their math skills and achieved their academic goals with MathMind Masters.</p>
+            <a href="#test-system" class="btn btn-large">Take Assessment Now</a>
         </div>
     </section>
 
@@ -968,7 +1066,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h3>MathsMind Masters</h3>
+                    <h3>MathMind Masters</h3>
                     <p style="color: rgba(255,255,255,0.7);">Maths Confidence Starts Here!</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -983,8 +1081,8 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#courses">Courses</a></li>
                         <li><a href="#our-approach">How It Works</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#enroll">Contact</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#test-system">Assessment</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1000,20 +1098,442 @@
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><a href="mailto:mathsmindmasters@gmail.com">mathsmindmasters@gmail.com</a></li>
+                        <li><a href="mailto:MathMindmasters@gmail.com">MathMindmasters@gmail.com</a></li>
                         <li><a href="tel:+41234567890">+4 (123) 456-7890</a></li>
                         <li>Kenyon Way<br>Langley, SL3 8AL</li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 MathsMind Masters. All rights reserved.
+                &copy; 2025 MathMind Masters. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple mobile menu toggle
+        // Test System Data
+        const testQuestions = {
+            reception: [
+                {
+                    question: "What is 2 + 3?",
+                    options: ["4", "5", "6", "7"],
+                    correct: 1
+                },
+                {
+                    question: "How many sides does a triangle have?",
+                    options: ["2", "3", "4", "5"],
+                    correct: 1
+                },
+                {
+                    question: "Which number comes after 7?",
+                    options: ["6", "7", "8", "9"],
+                    correct: 2
+                },
+                {
+                    question: "What is 5 - 2?",
+                    options: ["2", "3", "4", "5"],
+                    correct: 1
+                },
+                {
+                    question: "Which shape is a circle?",
+                    options: ["Square", "Triangle", "Circle", "Rectangle"],
+                    correct: 2
+                },
+                {
+                    question: "How many fingers do you have on one hand?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 2
+                },
+                {
+                    question: "What is 4 + 1?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 2
+                },
+                {
+                    question: "Which number is greater: 6 or 9?",
+                    options: ["6", "9", "Both", "Neither"],
+                    correct: 1
+                },
+                {
+                    question: "What is 10 - 5?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 2
+                },
+                {
+                    question: "How many days are in a week?",
+                    options: ["5", "6", "7", "8"],
+                    correct: 2
+                }
+            ],
+            year1: [
+                {
+                    question: "What is 7 + 8?",
+                    options: ["14", "15", "16", "17"],
+                    correct: 1
+                },
+                {
+                    question: "How many tens are in the number 36?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 0
+                },
+                {
+                    question: "What is 12 - 5?",
+                    options: ["6", "7", "8", "9"],
+                    correct: 1
+                },
+                {
+                    question: "Which number is odd?",
+                    options: ["4", "6", "8", "9"],
+                    correct: 3
+                },
+                {
+                    question: "What is half of 10?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 2
+                },
+                {
+                    question: "How many sides does a square have?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 1
+                },
+                {
+                    question: "What is 9 + 6?",
+                    options: ["14", "15", "16", "17"],
+                    correct: 1
+                },
+                {
+                    question: "What is 15 - 7?",
+                    options: ["7", "8", "9", "10"],
+                    correct: 1
+                },
+                {
+                    question: "Which number is even?",
+                    options: ["3", "5", "7", "10"],
+                    correct: 3
+                },
+                {
+                    question: "What is double 8?",
+                    options: ["14", "15", "16", "17"],
+                    correct: 2
+                }
+            ],
+            year2: [
+                {
+                    question: "What is 25 + 17?",
+                    options: ["40", "42", "44", "46"],
+                    correct: 1
+                },
+                {
+                    question: "What is 50 - 23?",
+                    options: ["25", "26", "27", "28"],
+                    correct: 2
+                },
+                {
+                    question: "How many 5p coins make 50p?",
+                    options: ["8", "9", "10", "11"],
+                    correct: 2
+                },
+                {
+                    question: "What is 7 × 4?",
+                    options: ["26", "28", "30", "32"],
+                    correct: 1
+                },
+                {
+                    question: "What is 36 ÷ 6?",
+                    options: ["4", "5", "6", "7"],
+                    correct: 2
+                },
+                {
+                    question: "What is 3/4 of 20?",
+                    options: ["12", "14", "15", "16"],
+                    correct: 2
+                },
+                {
+                    question: "What time is shown when the hour hand is on 3 and the minute hand is on 12?",
+                    options: ["3:00", "3:12", "12:03", "12:30"],
+                    correct: 0
+                },
+                {
+                    question: "What is the perimeter of a square with sides of 5cm?",
+                    options: ["15cm", "20cm", "25cm", "30cm"],
+                    correct: 1
+                },
+                {
+                    question: "What is 8 × 7?",
+                    options: ["54", "56", "58", "60"],
+                    correct: 1
+                },
+                {
+                    question: "What is 81 ÷ 9?",
+                    options: ["7", "8", "9", "10"],
+                    correct: 2
+                }
+            ]
+        };
+
+        // Test System Variables
+        let currentStep = 1;
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let selectedCourse = '';
+        let testScore = 0;
+
+        // DOM Elements
+        const steps = document.querySelectorAll('.test-step');
+        const loginBtn = document.getElementById('login-to-test');
+        const showRegisterLink = document.getElementById('show-register');
+        const registerForm = document.getElementById('registration-form');
+        const registerBtn = document.getElementById('register-btn');
+        const backToLoginBtn = document.getElementById('back-to-login');
+        const startTestBtn = document.getElementById('start-test');
+        const prevQuestionBtn = document.getElementById('prev-question');
+        const nextQuestionBtn = document.getElementById('next-question');
+        const submitTestBtn = document.getElementById('submit-test');
+        const questionsContainer = document.getElementById('questions-container');
+        const testProgress = document.getElementById('test-progress');
+        const sendResultsBtn = document.getElementById('send-results');
+        const retakeTestBtn = document.getElementById('retake-test');
+
+        // Initialize Test System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show step 1 by default
+            showStep(1);
+            
+            // Event Listeners
+            loginBtn.addEventListener('click', loginToTest);
+            showRegisterLink.addEventListener('click', toggleRegisterForm);
+            registerBtn.addEventListener('click', registerUser);
+            backToLoginBtn.addEventListener('click', () => showStep(1));
+            startTestBtn.addEventListener('click', startTest);
+            prevQuestionBtn.addEventListener('click', showPreviousQuestion);
+            nextQuestionBtn.addEventListener('click', showNextQuestion);
+            submitTestBtn.addEventListener('click', submitTest);
+            sendResultsBtn.addEventListener('click', sendResultsToParent);
+            retakeTestBtn.addEventListener('click', resetTest);
+            
+            // Login buttons in header
+            document.getElementById('login-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('test-system').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            document.getElementById('signup-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('test-system').scrollIntoView({ behavior: 'smooth' });
+                toggleRegisterForm();
+            });
+        });
+
+        // Test System Functions
+        function showStep(stepNumber) {
+            steps.forEach(step => step.classList.remove('active'));
+            document.getElementById(`step${stepNumber}`).classList.add('active');
+            currentStep = stepNumber;
+        }
+
+        function loginToTest() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+            
+            // Simulate login - In a real app, this would connect to the backend
+            // For demo purposes, we'll just proceed to the next step
+            showStep(2);
+        }
+
+        function toggleRegisterForm() {
+            if (registerForm.style.display === 'none') {
+                registerForm.style.display = 'block';
+                showRegisterLink.textContent = 'Back to login';
+            } else {
+                registerForm.style.display = 'none';
+                showRegisterLink.textContent = 'Register here';
+            }
+        }
+
+        function registerUser() {
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const role = document.getElementById('role').value;
+            const username = document.getElementById('new-username').value;
+            const password = document.getElementById('new-password').value;
+            
+            if (!fullname || !email || !role || !username || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Simulate registration - In a real app, this would connect to the backend
+            alert('Registration successful! You can now login.');
+            toggleRegisterForm();
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = password;
+        }
+
+        function startTest() {
+            const course = document.getElementById('course').value;
+            
+            if (!course) {
+                alert('Please select a course');
+                return;
+            }
+            
+            selectedCourse = course;
+            userAnswers = new Array(testQuestions[course].length).fill(null);
+            currentQuestion = 0;
+            
+            showStep(3);
+            displayQuestion();
+            updateProgress();
+        }
+
+        function displayQuestion() {
+            const questions = testQuestions[selectedCourse];
+            const question = questions[currentQuestion];
+            
+            questionsContainer.innerHTML = `
+                <div class="question-container">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${questions.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options-container">
+                        ${question.options.map((option, index) => `
+                            <div class="option ${userAnswers[currentQuestion] === index ? 'selected' : ''}" data-index="${index}">
+                                <input type="radio" name="answer" id="option-${index}" ${userAnswers[currentQuestion] === index ? 'checked' : ''}>
+                                <label for="option-${index}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Add event listeners to options
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const selectedIndex = parseInt(this.getAttribute('data-index'));
+                    userAnswers[currentQuestion] = selectedIndex;
+                    
+                    // Update UI
+                    document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    document.querySelector(`#option-${selectedIndex}`).checked = true;
+                });
+            });
+            
+            // Update navigation buttons
+            prevQuestionBtn.disabled = currentQuestion === 0;
+            nextQuestionBtn.style.display = currentQuestion < questions.length - 1 ? 'block' : 'none';
+            submitTestBtn.style.display = currentQuestion === questions.length - 1 ? 'block' : 'none';
+        }
+
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+                updateProgress();
+            }
+        }
+
+        function showNextQuestion() {
+            if (userAnswers[currentQuestion] === null) {
+                alert('Please select an answer before proceeding');
+                return;
+            }
+            
+            if (currentQuestion < testQuestions[selectedCourse].length - 1) {
+                currentQuestion++;
+                displayQuestion();
+                updateProgress();
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / testQuestions[selectedCourse].length) * 100;
+            testProgress.style.width = `${progress}%`;
+        }
+
+        function submitTest() {
+            if (userAnswers[currentQuestion] === null) {
+                alert('Please select an answer before submitting');
+                return;
+            }
+            
+            // Check if all questions are answered
+            if (userAnswers.includes(null)) {
+                alert('Please answer all questions before submitting');
+                return;
+            }
+            
+            // Calculate score
+            calculateScore();
+            showStep(4);
+            displayResults();
+        }
+
+        function calculateScore() {
+            const questions = testQuestions[selectedCourse];
+            let correct = 0;
+            
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] === questions[i].correct) {
+                    correct++;
+                }
+            }
+            
+            testScore = Math.round((correct / questions.length) * 100);
+        }
+
+        function displayResults() {
+            const questions = testQuestions[selectedCourse];
+            const correctAnswers = userAnswers.filter((answer, index) => answer === questions[index].correct).length;
+            
+            document.getElementById('score-value').textContent = `${testScore}%`;
+            document.getElementById('total-questions').textContent = questions.length;
+            document.getElementById('correct-answers').textContent = correctAnswers;
+            document.getElementById('final-score').textContent = `${testScore}%`;
+            
+            const scoreCircle = document.querySelector('.score-circle');
+            scoreCircle.style.background = `conic-gradient(var(--primary) 0% ${testScore}%, #e2e8f0 ${testScore}% 100%)`;
+            
+            if (testScore >= 70) {
+                document.getElementById('result-status').textContent = 'Passed!';
+                document.getElementById('result-status').className = 'pass';
+                document.getElementById('pass-fail').textContent = 'Pass';
+                document.getElementById('pass-fail').className = 'pass';
+                document.getElementById('result-message').textContent = 'Congratulations! You have passed the assessment.';
+            } else {
+                document.getElementById('result-status').textContent = 'Needs Improvement';
+                document.getElementById('result-status').className = 'fail';
+                document.getElementById('pass-fail').textContent = 'Fail';
+                document.getElementById('pass-fail').className = 'fail';
+                document.getElementById('result-message').textContent = 'You need more practice. Consider reviewing the course materials.';
+            }
+        }
+
+        function sendResultsToParent() {
+            const parentEmail = document.getElementById('parent-email').value;
+            
+            if (!parentEmail) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // In a real application, this would send the results to the backend
+            // which would then email the parent with the results
+            alert(`Results have been sent to ${parentEmail}`);
+        }
+
+        function resetTest() {
+            userAnswers = [];
+            currentQuestion = 0;
+            testScore = 0;
+            showStep(2);
+        }
+
+        // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             const nav = document.querySelector('nav');
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
@@ -1035,27 +1555,6 @@
                     });
                 }
             });
-        });
-
-        // Logo upload functionality
-        document.getElementById('upload-area').addEventListener('click', function() {
-            document.getElementById('file-input').click();
-        });
-
-        document.getElementById('file-input').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const logoPreview = document.getElementById('logo-preview');
-                    logoPreview.innerHTML = `<img src="${event.target.result}" alt="Logo Preview">`;
-                    
-                    // Update the logo in the header as well
-                    const headerLogo = document.querySelector('.logo-img');
-                    headerLogo.src = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
         });
     </script>
 </body>
